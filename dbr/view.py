@@ -151,7 +151,7 @@ class View:
     self.toolbar.insert(toolbar_item4, -1)
 
     iconw = gtk.Image() # icon widget
-    iconw.set_from_file("@prefix@/share/icons/gnome/32x32/actions/bookmarks.png")
+    iconw.set_from_file("/usr/share/icons/gnome/32x32/actions/bookmarks.png")
 
     toolbar_item5 = gtk.ToolButton(iconw,_("Set Bookmark"))
     #toolbar_item5.set_stock_id(gtk.STOCK_INDEX)
@@ -282,7 +282,7 @@ class View:
     """
     cursor_pos = self.treeview.get_cursor()
     aux = list(cursor_pos)
-    print aux
+#    print aux #dbr
     listed = list(aux[0])
     self.c.syncAudioView(listed[0])
 

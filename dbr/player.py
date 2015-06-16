@@ -72,16 +72,16 @@ class Player:
         self.player.get_by_name("file-source").set_property('location', file)
     time.sleep(0.1)
     self.player.set_state(gst.STATE_PAUSED)
-    print "file:" + file + "set position begin at " + str(pos_begin) + " and end position at " + str(pos_end) #dbg
+#    print "file:" + file + "set position begin at " + str(pos_begin) + " and end position at " + str(pos_end) #dbg
     if self.player.seek(1.0, self.time_format, gst.SEEK_FLAG_FLUSH | gst.SEEK_FLAG_SEGMENT, gst.SEEK_TYPE_SET, pos_begin, gst.SEEK_TYPE_SET, pos_end):
       time.sleep(0.2)
       self._state="Playing"
       self.player.set_state(gst.STATE_PLAYING)
     else:
-      print "Can not seek. Trying a simple seek." #dbg
+#      print "Can not seek. Trying a simple seek." #dbg
       self.player.set_state(gst.STATE_PAUSED)
       time.sleep(0.1)
-#      self.player.seek_simple(self.time_format, gst.SEEK_FLAG_FLUSH | gst.SEEK_FLAG_SEGMENT, pos_begin)
+      self.player.seek_simple(self.time_format, gst.SEEK_FLAG_FLUSH | gst.SEEK_FLAG_SEGMENT, pos_begin)
       self.player.seek(1.0, self.time_format, gst.SEEK_FLAG_FLUSH | gst.SEEK_FLAG_SEGMENT, gst.SEEK_TYPE_SET, pos_begin, gst.SEEK_TYPE_SET, pos_end)
       self.player.set_state(gst.STATE_PLAYING)
 
@@ -89,10 +89,10 @@ class Player:
     """
     Function for stopping an audio track playback
     """
-#    if self._state == "Playing" or self._state == "Paused":
-    self.player.set_state(gst.STATE_NULL)
-    time.sleep(0.1) #Ensure we have enough time for changing state
-    self._state = "Stopped"
+    if self._state == "Playing" or self._state == "Paused":
+        self.player.set_state(gst.STATE_NULL)
+        time.sleep(0.1) #Ensure we have enough time for changing state
+        self._state = "Stopped"
 
   def onMessage(self, bus, message):
     """
@@ -126,6 +126,8 @@ class Player:
     elif self._state == "Paused":
       self.player.set_state(gst.STATE_PLAYING)
       self._state = "Playing"
+    elif self._state == 'Stopped':
+      self.c.syncViewAudio()
 
   def getCurrentNs(self):
     """

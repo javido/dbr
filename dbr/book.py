@@ -298,9 +298,9 @@ class Book:
       for i in range(len(par)):
         text = par[i].getElementsByTagName('text')
         if (par[i].hasAttribute('id') and par[i].getAttribute('id') == uri[1]) or (text[0].hasAttribute('id') and text[0].getAttribute('id') == uri[1]):
-          print "Found corresponding par" #dbg
+#          print "Found corresponding par" #dbg
           audio = par[i].getElementsByTagName('audio')
-          print str(len(audio)) + " audios found." #dbg
+#          print str(len(audio)) + " audios found." #dbg
           for j in range(len(audio)):
             if audio[j].hasAttribute('clip-begin'):
               audio_path = self.path[0] + audio[j].attributes['src'].value
@@ -312,8 +312,8 @@ class Book:
               l.append(end)
 #            print "Audio track " + str(j)+ "\n" + "Audio file is: " + str(l[0]) + "Begins at " + str(l[1]) + " and ends at " + str(l[2]) #dbg
               m.append(l)
-        else:
-          print "par not found" #dbg
+#        else:
+#          print "par not found" #dbg
     else:
       audio = seq[0].getElementsByTagName('audio')
       for j in range(len(audio)):
@@ -328,7 +328,7 @@ class Book:
           m.append(l)
 #          print "Audio track " + str(j) + "\n" + "Audio file is: " + str(l[0]) + "Begins at " + str(l[1]) + " and ends at " + str(l[2]) #dbg
     self.m = m
-    print "There are " + str(len(self.m)) + "total audios" #dbg
+#    print "There are " + str(len(self.m)) + "total audios" #dbg
 
   def getNanoseconds(self, audio):
     """

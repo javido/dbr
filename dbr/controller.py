@@ -46,8 +46,6 @@ class Controller:
           self.b = None
       else:
         self.b = None
-    else:
-      pass
     return ncc, configuration[2]
 
 
@@ -56,7 +54,6 @@ class Controller:
     Destroy window
     """
     return True
-
 
   def loadLatestBook(self):
     """
@@ -247,6 +244,9 @@ class Controller:
       elif play:
         file, pos_begin, pos_end = self.b.getAudioTrack()
         self.p.play(file, pos_begin, pos_end)
+      else:
+        print "no se repduce"
+
     else:
       self.v.treeview.set_cursor(self.b.getNccPosition(),None)
 

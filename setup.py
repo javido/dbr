@@ -12,7 +12,7 @@ try:
     import DistUtilsExtra.auto
 except ImportError:
     import sys
-    print >> sys.stderr, 'To build Jockey you need https://launchpad.net/python-distutils-extra'
+    print >> sys.stderr, 'To build DBR you need https://launchpad.net/python-distutils-extra'
     sys.exit(1)
 
 assert StrictVersion(DistUtilsExtra.auto.__version__) >= '2.4', 'needs DistUtilsExtra.auto >= 2.4'
@@ -24,6 +24,11 @@ DistUtilsExtra.auto.setup(
     url='https://dbr.sourceforge.net',
     license='GPL v2 or later',
     author='Francisco Javier Dorado',
-    author_email='javier@tiflolinux.org'
+    author_email='javier@tiflolinux.org',
+
+    data_files = [
+    ('share/applications', ['dbr/dbr.desktop'])],
+    scripts = ['scripts/dbr']
+
 
 )
