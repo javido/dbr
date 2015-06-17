@@ -26,8 +26,6 @@ DistUtilsExtra.auto.setup(
     author='Francisco Javier Dorado',
     author_email='javier@tiflolinux.org',
 
-    data_files = [
-    ('share/applications', ['dbr/dbr.desktop'])],
     scripts = ['scripts/dbr']
 
 

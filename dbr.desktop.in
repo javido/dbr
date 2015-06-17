@@ -1,0 +1,12 @@
+[Desktop Entry]
+_Name=Daisy Book Reader
+_GenericName=DBR
+_X-GNOME-FullName=DBR Daisy Book Reader
+_Comment=A simple GTK Daisy Book reader
+_Keywords=daisy;book;reader;
+Exec=dbr
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;GNOME;Utility;Accessibility;
+
