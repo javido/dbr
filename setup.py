@@ -25,7 +25,9 @@ DistUtilsExtra.auto.setup(
     license='GPL v2 or later',
     author='Francisco Javier Dorado',
     author_email='javier@tiflolinux.org',
-
+    data_files = [
+        ('share/icons/gnome/32x32/actions', ['data/icons/bookmarks.png'])
+    ],
     scripts = ['scripts/dbr']
 
 
