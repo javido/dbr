@@ -9,7 +9,7 @@ import book
 import pygst
 pygst.require("0.10")
 import gst
-
+import pkg_resources
 from dbr_i18n import _          #For i18n support
 
 class Controller:
@@ -624,7 +624,7 @@ class Controller:
             'Francisco Javier Dorado Martínez']
     translations=_("This program has been translated by:\n\nJuan C. Buño\n")
     license=_("This program is under GNU/General Public License version 3. See accompanying COPYING file for more details.") 
-    version="@VERSION@"
+    version = pkg_resources.require('dbr')[0].version
     copyright="Copyright 2008 RafaelCantos Villanueva"
     website="http://dbr.sourceforge.net"
 
