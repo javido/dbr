@@ -622,8 +622,7 @@ class Controller:
     program_name="DBR"
     authors=['Rafael Cantos Villanueva', \
             'Francisco Javier Dorado Martínez']
-    translations=_("This program has been translated 
-by:\n\nJuan C. Buño\nHammer Attila\n")
+    translations=_("This program has been translated by:\n\nJuan C. Buño\nHammer Attila\n")
     license=_("This program is under GNU/General Public License version 3. See accompanying COPYING file for more details.") 
     version = pkg_resources.require('dbr')[0].version
     copyright="Copyright 2008 Rafael Cantos Villanueva"
